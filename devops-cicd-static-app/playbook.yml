@@ -1,0 +1,13 @@
+---
+- hosts: dev
+  become: true
+
+  tasks:
+
+  - name: Pull Docker Image
+    docker_container:
+      name: webapp
+      image: YOUR_DOCKERHUB_USERNAME/devops-static-app:latest
+      state: started
+      ports:
+        - "8085:80"
